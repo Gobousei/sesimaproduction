@@ -8,15 +8,15 @@ onload = async () => {
     const n = prompt("どこへいこう？\n1. 山\n2. 川\n3. 丘\n4. 帰る");
     if (n == 1) {
       await bg(658);
-      alert("山についた");
-      alert("HPが10、回復した");
+      await show("山についた");
+      await show("HPが10、回復した");
     } else if (n == 2) {
-      await bg(1855);
-      alert("川についた");
-      alert("MPが5、回復した");
+      await  bg(1855);
+      await show("川についた");
+      await show("MPが5、回復した");
     } else if (n == 3) {
       await bg(23);
-      alert("おー、花火だ");
+      await show("おー、花火だ");
       flg = true;
     } else {
       break;
@@ -24,13 +24,13 @@ onload = async () => {
   }
   if (flg) {
     await bg(2583);
-    alert("充実した一日だった");
-    alert("おやすみ");
-    alert("HAPPY END");
+    await show("充実した一日だった");
+    await show("おやすみ");
+    await show("HAPPY END");
   } else {
     await bg(3180);
-    alert("何か見落としているような・・・");
-    alert("THE END?");
+    await show("何か見落としているような・・・");
+    await show("THE END?");
   }
 };
 </script>
