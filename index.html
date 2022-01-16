@@ -1,36 +1,24 @@
-<script type="module">
-import { bg } from "https://js.sabae.cc/find47images.js";
-onload = async () => {
-  await bg(2892);
-  alert("おはよう、朝だ");
-  let flg = false;
-  for (;;) {
-    const n = prompt("どこへいこう？\n1. 山\n2. 川\n3. 丘\n4. 帰る");
-    if (n == 1) {
-      await bg(658);
-      await show("山についた");
-      await show("HPが10、回復した");
-    } else if (n == 2) {
-      await  bg(1855);
-      await show("川についた");
-      await show("MPが5、回復した");
-    } else if (n == 3) {
-      await bg(23);
-      await show("おー、花火だ");
-      flg = true;
-    } else {
-      break;
-    }
-  }
-  if (flg) {
-    await bg(2583);
-    await show("充実した一日だった");
-    await show("おやすみ");
-    await show("HAPPY END");
-  } else {
-    await bg(3180);
-    await show("何か見落としているような・・・");
-    await show("THE END?");
-  }
-};
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>キー入力</title>
+</head>
+<body>
+	<script>
+ 
+		//なにかキーが押されたとき、keydownfuncという関数を呼び出す
+		addEventListener( "keydown", keydownfunc );
+ 
+		//キーが押されたときに呼び出される関数
+		function keydownfunc( event ) {
+ 
+			//アラートを表示する
+			alert( '押したなー' );
+ 
+		}
+ 
+	</script>
+</body>
+</html>
 </script>
