@@ -1,6 +1,36 @@
-<script type="module">
+<<script type="module">
+import { bg } from "https://js.sabae.cc/find47images.js";
 onload = async () => {
+  await bg(2892);
   alert("おはよう、朝だ");
-  alert("もう、夜だ、おやすみ");
+  let flg = false;
+  for (;;) {
+    const n = prompt("どこへいこう？\n1. 山\n2. 川\n3. 丘\n4. 帰る");
+    if (n == 1) {
+      await bg(658);
+      alert("山についた");
+      alert("HPが10、回復した");
+    } else if (n == 2) {
+      await bg(1855);
+      alert("川についた");
+      alert("MPが5、回復した");
+    } else if (n == 3) {
+      await bg(23);
+      alert("おー、花火だ");
+      flg = true;
+    } else {
+      break;
+    }
+  }
+  if (flg) {
+    await bg(2583);
+    alert("充実した一日だった");
+    alert("おやすみ");
+    alert("HAPPY END");
+  } else {
+    await bg(3180);
+    alert("何か見落としているような・・・");
+    alert("THE END?");
+  }
 };
 </script>
