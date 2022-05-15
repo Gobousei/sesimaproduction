@@ -1,0 +1,36 @@
+<script>
+    $(function () {
+              
+        $('.timepicker').timepicker();
+        //確認画面ボタンクリック時処理
+        $('#submitButton').on('click', function () {
+            const user_id ="右"
+            const userId = "右"
+            const now = new Date();
+            $('#userIdTd').text(userId);
+            $('#confirmModal').show();
+        });
+        //確認モーダルのキャンセルボタンクリック時処理
+        $('#confirmModal .cancel').on('click', function () {
+            $('#confirmModal').hide();
+        });
+        //確認モーダルの登録ボタンクリック時処理
+        $('#registerButton').on('click', function () {
+            $('.regist-loading-wrapper').show();
+            const req = {};
+            const params = {};
+            $('#reserveForm').find('input').each(function (index, element) {
+                const key = $(element).attr('name');
+                const val = $(element).val();
+                params[key] = val;
+            });
+            req.parameters = params;
+            google.script.run.withSuccessHandler(doSubmitSuccess).doSubmitAjax(req);
+        });
+    });
+    const doSubmitSuccess = function (result) {
+      //送信完了時の処理
+        $('#confirmModal').hide();
+        alert("回答が送信されました")
+    };
+    </script>
