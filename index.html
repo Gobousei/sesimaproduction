@@ -8,6 +8,16 @@
                     location.href = 'https://script.google.com/macros/s/AKfycbziK-gx9Ahw9OyM2458sDAlaQz08cMfbZNn3Wu67TyzWBsnVD4eY5beTCBlUCoBUPKx-w/exec';
                 }
         </script>
+        <script type="text/javascript">
+        var ua = navigator.userAgent;
+	if (ua.indexOf('iPhone') > 0
+			|| (ua.indexOf('Android') > 0) && (ua.indexOf('Mobile') > 0)
+			|| ua.indexOf('Windows Phone') > 0) {
+		if (confirm('スマートフォンサイトに移動します')) {
+			location.href = 'smartphone.html';
+		}
+	}
+        </script>
     </head>
     <body>
         <h1>遷移専用</h1>
