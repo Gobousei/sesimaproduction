@@ -1,33 +1,39 @@
 function doGet(e) {
 const htmlOutput = HtmlService.createTemplateFromFile("index").evaluate();
   htmlOutput
-    .setTitle('your vote')
+    .setTitle('vote')
     .setFaviconUrl("https://raw.githubusercontent.com/Gobousei/vote/main/icon_av.png");
   return htmlOutput;
 }
-
 function getAppUrl() {
   return ScriptApp.getService().getUrl();
 }
-function doSubmitAjax(req) {
-    const params = req.parameters;
-    const resObj = {};
-    insertRecord(params);
-    return resObj;
-  }
-    function insertRecord(param){
-    let reservationTime = 0;
-    const fromDate = new Date(param.calendar_date_from +' ' + param.calendar_time_from);
-    const toDate = new Date(param.calendar_date_to + ' ' + param.calendar_time_to);
-
+function leftclick() {
+  const user_id ="左"
     //スプレッドシートに格納される順番
     const data = [[
-      param.user_id, 
+      user_id,
       new Date()
     ]];
-    //連携するスプレッドシートのID
-    const app = SpreadsheetApp.openById('1f_u5ApB3MD7Rj4mqR_hKwBd6ZFkCZUAMjrvGeffDvCY');
-    const sheet = app.getSheetByName('database');
+    const app = SpreadsheetApp.openById('1OWsC1SR0X6krZMF4G5hX4XMcx0BosOR_KBcdldZHskg');
+    const sheet = app.getSheetByName('シート1');
+    const insertRow = sheet.getDataRange().getLastRow() + 1;
+    const insertCol = 1;
+    const insertRowNum = data.length;
+    const insertColNum = data[0].length;
+    const insertRange = sheet.getRange(insertRow, insertCol,insertRowNum,insertColNum);
+    //スプレッドシートに書きこむAPI
+    insertRange.setValues(data);
+  }
+  function rightclick() {
+  const user_id ="右"
+    //スプレッドシートに格納される順番
+    const data = [[
+      user_id,
+      new Date()
+    ]];
+    const app = SpreadsheetApp.openById('1OWsC1SR0X6krZMF4G5hX4XMcx0BosOR_KBcdldZHskg');
+    const sheet = app.getSheetByName('シート1');
     const insertRow = sheet.getDataRange().getLastRow() + 1;
     const insertCol = 1;
     const insertRowNum = data.length;
