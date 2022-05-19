@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+        body {
+    background-image: url("https://raw.githubusercontent.com/Gobousei/vote/main/manage_haikei.jpg");
+    background-size: cover;
+        }
+         h1 {
+  font-size: 100px;
+  text-align: center;
+}
+h1{
+    display: inline;
+}
+h2{
+  font-size: 50px;
+}
+h3{
+  font-size:30px
+}
+    </style>
+     
+  </head>
+  <body>
+	<div id="edit_area">
+    <button type="button" id="rightButton" class="submit-button button is-info" onclick="buttonclick()">ボタンテスト</button>
+  </div>
+    <script>
+     function buttonclick(){
+       google.script.run.myFunction();
+       alert('クリックされました');
+     }
+    </script>
+  </body>
+</html>
