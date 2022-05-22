@@ -20,17 +20,71 @@ h2{
 h3{
   font-size:30px
 }
+rightButton{
+  display: inline;
+}
     </style>
      
   </head>
   <body>
+     <h1>
+      <?
+        var ss_id = '1OWsC1SR0X6krZMF4G5hX4XMcx0BosOR_KBcdldZHskg';
+        var sh_name = '結果'; //スプレッドシートのシート名を指定
+        var sh = SpreadsheetApp.openById(ss_id).getSheetByName(sh_name);
+        var left = sh.getRange("C6");
+        var leftvalue = left.getValue();
+        var lefts = sh.getRange("B6");
+        var leftsvalue = lefts.getValue();
+          output.append(leftsvalue + leftvalue);
+      ?>
+      </h1><br>
+
+      <h1>
+      <?
+        var ss_id = '1OWsC1SR0X6krZMF4G5hX4XMcx0BosOR_KBcdldZHskg';
+        var sh_name = '結果'; //スプレッドシートのシート名を指定
+        var sh = SpreadsheetApp.openById(ss_id).getSheetByName(sh_name);
+        var right = sh.getRange("C7");
+        var rightvalue = right.getValue();
+        var rights = sh.getRange("B7");
+        var rightsvalue = rights.getValue();
+          output.append(rightsvalue + rightvalue);
+      ?>
+      </h1><br><br></br>
+
+      <h1>
+      <?
+        var ss_id = '1OWsC1SR0X6krZMF4G5hX4XMcx0BosOR_KBcdldZHskg';
+        var sh_name = '結果'; //スプレッドシートのシート名を指定
+        var sh = SpreadsheetApp.openById(ss_id).getSheetByName(sh_name);
+        var range = sh.getRange("B10");
+        var rangevalue = range.getValue();
+        var ranges = sh.getRange("B9");
+        var rangesvalue = ranges.getValue();
+          output.append(rangesvalue + rangevalue);
+      ?>
+      </h1><br>
 	<div id="edit_area">
-    <button type="button" id="rightButton" class="submit-button button is-info" onclick="buttonclick()">ボタンテスト</button>
+    <button type="button" id="rightButton" class="submit-button button is-info" onclick="buttonclick()">結果を表示</button>
   </div>
+  <div id="edit_area">
+    <button type="button" id="rightButton" class="submit-button button is-info" onclick="deletebutton()">リセット</button>
+  </div>
+  <h1></h1>
     <script>
+      function result(url){
+            window.open(url, '_top')
+     }
+      function doSuccess(data){
+         google.script.run
+          .withSuccessHandler(result).getScriptUrl();
+     }
      function buttonclick(){
-       google.script.run.myFunction();
-       alert('クリックされました');
+       google.script.run.withSuccessHandler(doSuccess).myFunction();
+     }
+     function deletebutton(){
+       google.script.run.withSuccessHandler(doSuccess).deletefunc();
      }
     </script>
   </body>
