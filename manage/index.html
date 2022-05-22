@@ -3,6 +3,9 @@
   <head>
     <base target="_top">
     <style>
+      h1{
+        font-family: 'MS 明朝',serif;
+      }
         body {
     background-image: url("https://raw.githubusercontent.com/Gobousei/vote/main/manage_haikei.jpg");
     background-size: cover;
@@ -22,6 +25,23 @@ h3{
 }
 rightButton{
   display: inline;
+}
+.c-button:hover {
+  background: #1d49aa;
+}
+
+.c-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px #cbd6ee;
+}
+.c-button {
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  background: #4676D7;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 16px;
 }
     </style>
      
@@ -65,11 +85,9 @@ rightButton{
           output.append(rangesvalue + rangevalue);
       ?>
       </h1><br>
-	<div id="edit_area">
-    <button type="button" id="rightButton" class="submit-button button is-info" onclick="buttonclick()">結果を表示</button>
-  </div>
-  <div id="edit_area">
-    <button type="button" id="rightButton" class="submit-button button is-info" onclick="deletebutton()">リセット</button>
+	<div id="sumbit">
+    <button type="button" id="rightButton" class="c-button" onclick="buttonclick()">結果を表示</button>
+    <button type="button" id="rightButton" class="c-button" onclick="deletebutton()">リセット</button>
   </div>
   <h1></h1>
     <script>
@@ -87,5 +105,7 @@ rightButton{
        google.script.run.withSuccessHandler(doSuccess).deletefunc();
      }
     </script>
+    <br></br><br></br><br></br><br></br><br></br>
+    <a href="https://jp.freepik.com/vectors/design">背景画像提供元</a>
   </body>
 </html>
