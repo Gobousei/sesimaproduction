@@ -1,4 +1,5 @@
 
+
 function doGet(e) {
 const htmlOutput = HtmlService.createTemplateFromFile("index").evaluate();
   htmlOutput
@@ -10,11 +11,21 @@ function getAppUrl() {
   return ScriptApp.getService().getUrl();
 }
 function leftclick() {
+  var id = Session.getActiveUser().getUserLoginId(); //調べるメッセージID
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var data = sheet.getRange(2, 3, sheet.getLastRow() - 1).getValues();
+  var hasId = data.some(function(array, i, data) {
+    return (array[0] === id);
+  });
+  Logger.log(hasId);
+  if (hasId == false){
   const user_id ="左"
+  var address = Session.getActiveUser().getUserLoginId();
     //スプレッドシートに格納される順番
     const data = [[
       user_id,
-      new Date()
+      new Date(),
+      address
     ]];
     const app = SpreadsheetApp.openById('1OWsC1SR0X6krZMF4G5hX4XMcx0BosOR_KBcdldZHskg');
     const sheet = app.getSheetByName('シート1');
@@ -25,13 +36,26 @@ function leftclick() {
     const insertRange = sheet.getRange(insertRow, insertCol,insertRowNum,insertColNum);
     //スプレッドシートに書きこむAPI
     insertRange.setValues(data);
+  }else{
+    console.log("記録されませんでした")
+  }
   }
   function rightclick() {
+　var id = Session.getActiveUser().getUserLoginId(); //調べるメッセージID
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var data = sheet.getRange(2, 3, sheet.getLastRow() - 1).getValues();
+  var hasId = data.some(function(array, i, data) {
+    return (array[0] === id);
+  });
+  Logger.log(hasId);
+  if (hasId == false){
   const user_id ="右"
+  var address = Session.getActiveUser().getUserLoginId();
     //スプレッドシートに格納される順番
     const data = [[
       user_id,
-      new Date()
+      new Date(),
+      address
     ]];
     const app = SpreadsheetApp.openById('1OWsC1SR0X6krZMF4G5hX4XMcx0BosOR_KBcdldZHskg');
     const sheet = app.getSheetByName('シート1');
@@ -42,6 +66,9 @@ function leftclick() {
     const insertRange = sheet.getRange(insertRow, insertCol,insertRowNum,insertColNum);
     //スプレッドシートに書きこむAPI
     insertRange.setValues(data);
+  }else{
+    console.log("登録できませんでした")
+  }
   }
   
 function myFunction() {
@@ -58,14 +85,14 @@ var ss_id2 = '1OWsC1SR0X6krZMF4G5hX4XMcx0BosOR_KBcdldZHskg';
 var sh_name2 = '結果'; //スプレッドシートのシート名を指定
 var sh2 = SpreadsheetApp.openById(ss_id2).getSheetByName(sh_name2);
 if(leftvalue>rightvalue){
-var range = sh2.getRange("B10").setValue("左の勝利");
+var range = sh2.getRange("B10").setValue("左の当選");
 var delete1 = sh2.getRange("B9").setValue("結果：");
 var hidari = sh2.getRange("C6").setValue(leftvalue);
 var delete2 = sh2.getRange("B6").setValue("左の得票数：");
 var migi = sh2.getRange("C7").setValue(rightvalue);
 var delete3 = sh2.getRange("B7").setValue("右の得票数：");
 }else if(leftvalue<rightvalue){
-var range = sh2.getRange("B10").setValue("右の勝利");
+var range = sh2.getRange("B10").setValue("右の当選");
 var delete1 = sh2.getRange("B9").setValue("結果：");
 var hidari = sh2.getRange("C6").setValue(leftvalue);
 var delete2 = sh2.getRange("B6").setValue("左の得票数：");
@@ -90,7 +117,19 @@ var sh2 = SpreadsheetApp.openById(ss_id2).getSheetByName(sh_name2);
 var delete1 = sh2.getRange("B10").setValue(" ");
 var delete2 = sh2.getRange("C6").setValue(" ");
 var delete3 = sh2.getRange("C7").setValue(" ");
-var delete2 = sh2.getRange("B6").setValue("”結果を表示”を押してください");
+var delete2 = sh2.getRange("B6").setValue("投票中・・・");
 var delete3 = sh2.getRange("B7").setValue(" ");
 var delete1 = sh2.getRange("B9").setValue(" ");
+var sh_name = 'シート1'; //スプレッドシートのシート名を指定
+var sh3 = SpreadsheetApp.openById(ss_id2).getSheetByName(sh_name);
+var delete1 = sh3.deleteColumn(1)
+var delete1 = sh3.deleteColumn(1)
+var delete1 = sh3.deleteColumn(1)
+var delete1 = sh3.deleteColumn(1)
+var delete1 = sh3.deleteColumn(1)
+sh2.insertColumnsAfter(1,5)
+var write1 = sh3.getRange("D1").setValue("左");
+var write1 = sh3.getRange("D2").setValue("右");
+var write1 = sh3.getRange("E1").setValue('=COUNTIF(A3:A,"左")');
+var write1 = sh3.getRange("E2").setValue('=COUNTIF(A3:A,"右")');
 }
