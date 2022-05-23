@@ -1,0 +1,4 @@
+2022/5/13 gobousei create GAS
+2022/5/22 gobousei version 2 commit
+2022/5/22 gobousei version 3 commit
+2022/5/23 gobousei create WYK
