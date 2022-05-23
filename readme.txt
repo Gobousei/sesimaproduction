@@ -10,7 +10,7 @@ To develop, you must　deploying this section.
 <button type="button" id="leftButton"  onclick="clickedleftButton()">左に投票する</button>
 <button type="button" id="rightButton" onclick="clickedrightButton()">右に投票する</button>
 
-And you can change "this page" of index.html only.
+And you can change "this page" of index.html only. And if you change this file,Please write change_history.
 "this page" = https://script.google.com/home/projects/1C6x3NgNgpgOA3_Cw3kmD5YM0iDRzN-t4xjc20O8gQKyumdVX_POJByDo/edit
 
 caution! this site only visit by .okayama-c.ed.jp accounts
@@ -28,7 +28,7 @@ caution! this site only visit by .okayama-c.ed.jp accounts
 <button type="button" id="leftButton"  onclick="clickedleftButton()">左に投票する</button>
 <button type="button" id="rightButton" onclick="clickedrightButton()">右に投票する</button>
 
-UIを開発する際は、”ここのページ”の中の、index.htmlファイルのみを編集してください。
+UIを開発する際は、”ここのページ”の中の、index.htmlファイルのみを編集し、変更した場合、githubのchange_historyに記述してください。
 ”ここのページ” =　https://script.google.com/home/projects/1C6x3NgNgpgOA3_Cw3kmD5YM0iDRzN-t4xjc20O8gQKyumdVX_POJByDo/edit
 
 ！注意！　このページは岡山県立学校のアカウントでしか入ることができません。
