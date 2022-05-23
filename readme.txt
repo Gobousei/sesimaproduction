@@ -1,4 +1,4 @@
-For Front-end developper
+For Front-end developer
 To develop, you must　deploying this section.
 @under body tag
 <?!= HtmlService.createHtmlOutputFromFile('leftscript').getContent(); ?>
