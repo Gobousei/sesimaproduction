@@ -1,0 +1,24 @@
+<script>
+   function　clickedleftButton(){
+     var result = window.confirm('左に投票します。');
+    
+    if( result ) {
+      google.script.run.leftclick();
+         location.href = 'https://gobousei.github.io/vote/already.html';
+    }
+    else {
+         alert('キャンセルされました');
+    }
+   }
+   function　clickedrightButton(){
+     var result = window.confirm('右に投票します。');
+    
+    if( result ) {
+      google.script.run.rightclick();
+         location.href = 'https://gobousei.github.io/vote/already.html';
+    }
+    else {
+         alert('キャンセルされました');
+    }
+   }
+  </script>
