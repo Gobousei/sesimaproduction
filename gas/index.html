@@ -28,8 +28,23 @@
                 <div class="field">
 
                   <div class="control">
-                        <button type="button" id="leftButton" class="submit-button button is-info" onclick="clickedleftButton()">左に投票する</button>
-                        <button type="button" id="rightButton" class="submit-button button is-info" onclick="clickedrightButton()">右に投票する</button>
+                        <button type="button" id="leftButton" class="button1" name="button1" onclick="clickedleftButton()">
+        <?var ss_id = '1f_u5ApB3MD7Rj4mqR_hKwBd6ZFkCZUAMjrvGeffDvCY';
+        var sh_name = '設定'; //スプレッドシートのシート名を指定
+        var sh = SpreadsheetApp.openById(ss_id).getSheetByName(sh_name);
+        var range = sh.getRange("B3");
+        var rangevalue = range.getValue();
+          output.append(rangevalue);
+      ?></button>
+                        <button type="button" id="rightButton" class="button2" name="button2" onclick="clickedrightButton()">
+        <?var ss_id = '1f_u5ApB3MD7Rj4mqR_hKwBd6ZFkCZUAMjrvGeffDvCY';
+        var sh_name = '設定'; //スプレッドシートのシート名を指定
+        var sh = SpreadsheetApp.openById(ss_id).getSheetByName(sh_name);
+        var range = sh.getRange("C3");
+        var rangevalue = range.getValue();
+          output.append(rangevalue);
+      ?>
+                        </button>
 
                             </footer>
                         </div>
@@ -75,11 +90,6 @@
             flex-direction: column;
         }
 
-        .calendar-field input[type=date] {
-            width: 160px;
-            margin: 10px auto;
-        }
-
 
 
         .form-title .hero-body {
@@ -96,15 +106,6 @@
 
         .is-flex-wrap-nowrap {
             flex-wrap: wrap;
-        }
-
-        .form-body #userId {
-            width: 60%;
-        }
-
-        .form-body .submit-button {
-            padding-left: 3em;
-            padding-right: 3em;
         }
 
         .calendar-control>div {
@@ -124,6 +125,49 @@
                 display: none;
             }
         }
+      
+.button1 {
+  margin-left: 4rem;
+  display       : inline-block;
+  border-radius : 11%;          /* 角丸       */
+  font-size     : 32pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  background    : #ff0000;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #ff0000;    /* 枠の指定 */
+  width         : 300px;
+  height        : 250px;
+}
+.button1:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #ff0000;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+.button2 {
+  margin-left: 2.5rem;
+  display       : inline-block;
+  border-radius : 11%;          /* 角丸       */
+  font-size     : 32pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  background    : #00007f;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #00007f;    /* 枠の指定 */
+  width         : 300px;
+  height        : 250px;
+}
+.button2:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #00007f;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
     </style>
 </body>
 
