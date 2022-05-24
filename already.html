@@ -2,6 +2,11 @@
 <head>
   <title>投票されました</title>
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+  <script>
+  function reload(){
+    location.reload();
+  }
+  </script>
       <style>
         * {
             margin: 0;
@@ -106,6 +111,7 @@
 
                   <div class="control">
                     <h1>投票されました。二回以上投票した場合、一回目のみが記録されます。</h1>
+                    <button onclick="reload()" value="次の投票">
                   </div>
                     </div>
                 </div>
