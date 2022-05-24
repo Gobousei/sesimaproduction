@@ -4,8 +4,8 @@
     <base target="_top">
     <style>
       h1{
-        font-family: 'MS 明朝',serif;
-      }
+  font-family: 'ＭＳ 明朝', serif;
+}
         body {
     background-image: url("https://raw.githubusercontent.com/Gobousei/vote/main/manage_haikei.jpg");
     background-size: cover;
@@ -27,21 +27,28 @@ rightButton{
   display: inline;
 }
 .c-button:hover {
-  background: #1d49aa;
-}
-
-.c-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 4px #cbd6ee;
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : rgba(102, 102, 255, 0.81);     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
 }
 .c-button {
-  appearance: none;
-  border: 0;
-  border-radius: 5px;
-  background: #4676D7;
-  color: #fff;
-  padding: 8px 16px;
-  font-size: 16px;
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 18pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : rgba(26, 26, 255, 0.52);     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 3px 3px 3px #666666;  /* 影の設定 */
+  border        : 2px solid rgba(26, 26, 255, 0.52);    /* 枠の指定 */
+}
+.edit_area{
+  margin: 0 0 0 auto;
+  height: 100px;
+    width:  400px;
 }
     </style>
      
@@ -49,7 +56,7 @@ rightButton{
   <body>
      <h1>
       <?
-        var ss_id = '1OWsC1SR0X6krZMF4G5hX4XMcx0BosOR_KBcdldZHskg';
+        var ss_id = '1f_u5ApB3MD7Rj4mqR_hKwBd6ZFkCZUAMjrvGeffDvCY';
         var sh_name = '結果'; //スプレッドシートのシート名を指定
         var sh = SpreadsheetApp.openById(ss_id).getSheetByName(sh_name);
         var left = sh.getRange("C6");
@@ -62,7 +69,7 @@ rightButton{
 
       <h1>
       <?
-        var ss_id = '1OWsC1SR0X6krZMF4G5hX4XMcx0BosOR_KBcdldZHskg';
+        var ss_id = '1f_u5ApB3MD7Rj4mqR_hKwBd6ZFkCZUAMjrvGeffDvCY';
         var sh_name = '結果'; //スプレッドシートのシート名を指定
         var sh = SpreadsheetApp.openById(ss_id).getSheetByName(sh_name);
         var right = sh.getRange("C7");
@@ -75,7 +82,7 @@ rightButton{
 
       <h1>
       <?
-        var ss_id = '1OWsC1SR0X6krZMF4G5hX4XMcx0BosOR_KBcdldZHskg';
+        var ss_id = '1f_u5ApB3MD7Rj4mqR_hKwBd6ZFkCZUAMjrvGeffDvCY';
         var sh_name = '結果'; //スプレッドシートのシート名を指定
         var sh = SpreadsheetApp.openById(ss_id).getSheetByName(sh_name);
         var range = sh.getRange("B10");
@@ -85,7 +92,7 @@ rightButton{
           output.append(rangesvalue + rangevalue);
       ?>
       </h1><br>
-	<div id="sumbit">
+	<div class="edit_area">
     <button type="button" id="rightButton" class="c-button" onclick="buttonclick()">結果を表示</button>
     <button type="button" id="rightButton" class="c-button" onclick="deletebutton()">リセット</button>
   </div>
@@ -106,6 +113,6 @@ rightButton{
      }
     </script>
     <br></br><br></br><br></br><br></br><br></br>
-    <a href="https://jp.freepik.com/vectors/design">背景画像提供元</a>
+    <a href="https://jp.freepik.com/vectors/design">Rawpixel.com - jp.freepik.com によって作成された design ベクトル</a>
   </body>
 </html>
