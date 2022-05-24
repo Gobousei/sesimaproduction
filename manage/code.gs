@@ -62,3 +62,32 @@ var migi = sh2.getRange("C7").setValue(rightvalue);
 var delete3 = sh2.getRange("B7").setValue(number3 + number1);
 }
 }
+
+function getScriptUrl() {
+  var url = ScriptApp.getService().getUrl();
+  return url;
+}
+
+function deletefunc(){
+  var ss_id2 = '1f_u5ApB3MD7Rj4mqR_hKwBd6ZFkCZUAMjrvGeffDvCY';
+var sh_name2 = '結果'; //スプレッドシートのシート名を指定
+var sh2 = SpreadsheetApp.openById(ss_id2).getSheetByName(sh_name2);
+var delete1 = sh2.getRange("B10").setValue(" ");
+var delete2 = sh2.getRange("C6").setValue(" ");
+var delete3 = sh2.getRange("C7").setValue(" ");
+var delete2 = sh2.getRange("B6").setValue("　");
+var delete3 = sh2.getRange("B7").setValue("投票中・・・");
+var delete1 = sh2.getRange("B9").setValue(" ");
+var sh_name = 'シート1'; //スプレッドシートのシート名を指定
+var sh3 = SpreadsheetApp.openById(ss_id2).getSheetByName(sh_name);
+var delete1 = sh3.deleteColumn(1)
+var delete1 = sh3.deleteColumn(1)
+var delete1 = sh3.deleteColumn(1)
+var delete1 = sh3.deleteColumn(1)
+var delete1 = sh3.deleteColumn(1)
+sh3.insertColumnsAfter(1,5)
+var write1 = sh3.getRange("D1").setValue("左");
+var write1 = sh3.getRange("D2").setValue("右");
+var write1 = sh3.getRange("E1").setValue('=COUNTIF(A3:A,"左")');
+var write1 = sh3.getRange("E2").setValue('=COUNTIF(A3:A,"右")');
+}
