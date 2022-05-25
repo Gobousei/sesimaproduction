@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<head>
+    <title>vote説明ページ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+    <style>
+        .content{
+            margin-bottom : 10px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vw;
+            min-height: 100vh;
+        }
+
+        .main {
+            margin: 20px;
+            width: 60%;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+            border-radius: 6px;
+        }
+
+        .form-body {
+            padding: 20px;
+        }
+
+        #reserveForm {
+            width: 100%;
+
+        }
+
+        .is-justify-content-center {
+            justify-content: center;
+        }
+
+        .is-flex-direction-column {
+            flex-direction: column;
+        }
+
+
+
+        .form-title .hero-body {
+            padding: 1.4rem 0.8rem;
+        }
+
+        .form-title .title {
+            font-size: 1.2rem;
+        }
+
+        .form-body .field:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
+
+        .is-flex-wrap-nowrap {
+            flex-wrap: wrap;
+        }
+
+        .calendar-control>div {
+            width: 100%;
+        }
+
+        @media screen and (max-width: 480px) {
+            body {
+                min-height: 100%;
+            }
+
+            .main {
+                width: 100%;
+            }
+
+            .form-body .form-text {
+                display: none;
+            }
+        }
+    </style>
+</head>
+    <body class="is-flex is-justify-content-center has-background-light">
+    <div class="main has-background-white is-flex-direction-column">
+        <div class="conteiner form-title">
+            <section class="hero is-info">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">
+                            意見書
+                        </h1>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="registerContent" class="conteiner form-body">
+            <form id="reserveForm" action="<?= getAppUrl() ?>" method="post">
+                <div class="field">
+                    <div class="content">
+                        <p>投票をウェブ上で行うウェブアプリを作成しました。<p>
+                            この下の手順に従ってアプリを利用してみてください。<p>
+                            尚、このアプリはGoogle Apps Scriptを使用して岡山県立学校内で作成されたものです。<p>
+                            どこからか拾ってきたものではないのでご安心ください。
+                        </p>
+                    </div>
+                    <div class="content">
+                        <h1>制作目的</h1>
+                        <p>現行の決議は、拍手という曖昧な方法にて行われています。<p>
+                            それを改善してほしいと思い、また作成者の興味関心のもと、作成いたしました。</p>
+                    </div>
+                    <div class="content">
+                        <h1>手順１</h1>
+                        <p>
+                            この下にあるリンクから、アプリの投票ページへアクセスしてください。<p>
+                        </p>
+                        <a href="https://gobousei.github.io/vote/forall"target="_blank">リンク</a>
+                    </div>
+                    <div class="content">
+                        <h1>手順２</h1>
+                        <p>
+                            投票ページにて、どちらかのボタンを押し、その後出てくるダイアログにてOKを押してください。<p>
+                        </p>
+                        <img src="/img/tejun2.jpg">
+                    </div>
+                    <div class="content">
+                        <h1>手順３</h1>
+                        <p>この下にあるリンクにアクセスし、”結果を表示”というボタンを押してください。<p>
+                            少しタイムラグがありますが、先ほど投票した値が計算されて投票結果が表示されるはずです。
+                        </p>
+                        <a href="https://gobousei.github.io/vote/forall/manage.html"target="_blank">リンク</a><br>
+                        <img src="/img/tejun3.jpg">
+                    </div>
+                    <div class="content">
+                        <h1>このアプリの詳細</h1>
+                        <p>
+                            先ほどアクセスしウェブアプリは体験用です。<p>
+                            そのため、ユーザー認証がなく、再読み込みをすれば一人で何度でも投票できます。<p>
+                            ユーザー認証を付けたウェブアプリも作っています。<p>
+                            また、選択肢の内容、タイトルなどを変更しながら連続して投票を行うことも可能です。<P>
+                            もしよかったら使ってください。<p>
+                            実際のものは作成者まで。
+                        </p>
+                    </div>
+                    <div class="content">
+                        <h1>作成者</h1>
+                        <p>
+                            ２年理数科　片山航生
+                        </p>
+                    </div>
+                  <div class="control">
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><div>
+    </div>
+</body>
