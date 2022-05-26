@@ -1,116 +1,95 @@
-<!doctype html>
+<!DOCTYPE html>
 <head>
-  <title>投票されました</title>
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
-      <style>
+    <title>投票されました</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+    <style>
+        .content{
+            margin-bottom : 10px;
+        }
         * {
             margin: 0;
             padding: 0;
         }
-
         body {
             width: 100vw;
             min-height: 100vh;
         }
-
         .main {
             margin: 20px;
             width: 60%;
             box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
             border-radius: 6px;
         }
-
         .form-body {
             padding: 20px;
         }
-
         #reserveForm {
             width: 100%;
-
         }
-
         .is-justify-content-center {
             justify-content: center;
         }
-
         .is-flex-direction-column {
             flex-direction: column;
         }
-
-        .calendar-field input[type=date] {
-            width: 160px;
-            margin: 10px auto;
-        }
-
-
-
         .form-title .hero-body {
             padding: 1.4rem 0.8rem;
         }
-
         .form-title .title {
             font-size: 1.2rem;
         }
-
         .form-body .field:not(:last-child) {
             margin-bottom: 1.5rem;
         }
-
         .is-flex-wrap-nowrap {
             flex-wrap: wrap;
         }
-
-        .form-body #userId {
-            width: 60%;
-        }
-
-        .form-body .submit-button {
-            padding-left: 3em;
-            padding-right: 3em;
-        }
-
         .calendar-control>div {
             width: 100%;
         }
-
         @media screen and (max-width: 480px) {
             body {
                 min-height: 100%;
             }
-
             .main {
                 width: 100%;
             }
-
             .form-body .form-text {
                 display: none;
             }
         }
     </style>
 </head>
-<body　class="is-flex is-justify-content-center has-background-light">
-      <div class="main has-background-white is-flex-direction-column">
+    <body class="is-flex is-justify-content-center has-background-light">
+    <div class="main has-background-white is-flex-direction-column">
         <div class="conteiner form-title">
             <section class="hero is-info">
                 <div class="hero-body">
                     <div class="container">
                         <h1 class="title">
-                            vote
+                            投票されました
                         </h1>
                     </div>
                 </div>
             </section>
         </div>
         <div id="registerContent" class="conteiner form-body">
+            <form id="reserveForm" action="<?= getAppUrl() ?>" method="post">
                 <div class="field">
-
+                    <div class="content">
+                        <p>投票されました。二回以上投票した場合、一回目のみが記録されます。<p>
+                        </p>
+                    </div>
                   <div class="control">
-                    <h1>投票されました。二回以上投票した場合、一回目のみが記録されます。</h1>
-                  </div>
+                            </footer>
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
+    </div><div>
     </div>
 </body>
-</html>
