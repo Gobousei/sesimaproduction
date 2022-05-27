@@ -6,6 +6,66 @@
     <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
     <style>
+        .nextReadBox {
+  position      : relative;                 /* relative指定は必須   */
+  overflow      : hidden;                   /* hidden指定は必須     */
+  transition    : .5s;                      /* 開閉の速度           */
+  height        : 150px;                    /* 閉じているときの高さ */
+ 
+  background    : #fff;               /* 色や文字情報は変更ください */
+  line-height   : 1.3;
+  padding       : 5px 10px;
+  text-align    : left;
+  font-size     : 13pt;
+  font-weight   : bold;
+  border        : 3px solid #999;
+  border-radius : 8px;
+  max-width     : 400px;
+  margin        : auto;
+}
+ 
+ /* === チェックボックス ========================================== */
+.nextReadBox > input {
+  display       : none;                                   /* 非表示 */
+}
+ 
+ /* === チェックボックスのlabel（＝ボタンに見せる） =============== */
+.nextReadBox > label {
+  position      : absolute;
+  display       : inline-block;
+  box-sizing    : border-box;
+  cursor        : pointer;
+ 
+  bottom        : 0;   /* 左右いっぱいのBOXにグラデーションを付ける */
+  left          : 0;
+  right         : 0;
+  height        : 60px;
+  background    : linear-gradient( rgba(255, 255, 255, 0.10),
+                                   #ffffff 65% );
+ 
+  padding-top   : 40px;                   /* 下寄せに文字を配置する */
+  text-align    : center;
+  font-size     : 15px;
+  color         : #0059b3;
+}
+ 
+ /* === 開いているときのボタンサイズを変更 ======================== */
+.nextReadBox > input[type="checkbox"]:checked + label {
+  background    : rgba(255, 255, 255, 0.60);
+  height        : 25px;
+  padding-top   : 5px;
+  font-size     : 12px;
+}
+ 
+ /* === ボタンに表示する文字（閉じているとき） ==================== */
+.nextReadBox > input[type="checkbox"]:not(:checked) + label::after {
+  content       : "続きを開く";
+}
+ 
+ /* === ボタンに表示する文字（開いているとき） ==================== */
+.nextReadBox > input[type="checkbox"]:checked + label::after {
+  content       : "閉じる";
+}
         .content{
             margin-bottom : 10px;
         }
@@ -124,7 +184,13 @@
                         </p>
                     </div>
                     <div class="content">
-                        <h1>作成者</h1>
+                  <div class="nextReadBox" id="area01">
+  　　　　　　　　　<input type="checkbox" id="ck01" onclick="docOpen('01')">
+ 　　　　　　　　　 <label for="ck01"></label>
+ 
+　　　　　　　　　  <div id="doc01">
+    　　　　　　　　　<!-- このdiv内に文書を書きます -->
+　　　　　　　　　　　    <h1>作成者</h1>
                         <p>
                             ２年理数科　片山航生　（生物部）
                         </p>
@@ -136,6 +202,9 @@
                         <a href="https://gobousei.github.io/vote/forschool"target="_blank">https://gobousei.github.io/vote/forschool</a>
                         <a href="https://gobousei.github.io/vote/forschool/manage.html"target="_blank">管理ページ</a>
                         <p>管理ページの使用方法は同じです。回答は一度しかできません。リセットを押せば、再投票が可能です。</p>
+　　　　　　　　　　  </div>
+ 
+　　　　　　　　　　　</div>
                   <div class="control">
                             </footer>
                         </div>
