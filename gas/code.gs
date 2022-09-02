@@ -1,29 +1,31 @@
 function doGet(e) {
-const htmlOutput = HtmlService.createTemplateFromFile("index").evaluate();
+  let page = e.parameter.page;
+  if (!page) {
+    page = 'index';
+  }
+const htmlOutput = HtmlService.createTemplateFromFile(page).evaluate();
   htmlOutput
     .setTitle('vote')
     .setFaviconUrl("https://raw.githubusercontent.com/Gobousei/vote/main/icon_av.png");
   return htmlOutput;
 }
+function deletepro(){
+  var userProperties = PropertiesService.getUserProperties();
+  userProperties.deleteProperty('voted');
+}
 function getAppUrl() {
   return ScriptApp.getService().getUrl();
 }
+
 function leftclick() {
-  var id = Session.getActiveUser().getUserLoginId(); //調べるメッセージID
-  var sheet = SpreadsheetApp.getActiveSheet();
-  var data = sheet.getRange(2, 3, sheet.getLastRow() - 1).getValues();
-  var hasId = data.some(function(array, i, data) {
-    return (array[0] === id);
-  });
+  var hasId =   PropertiesService.getUserProperties().getProperty('voted');
   Logger.log(hasId);
-  if (hasId == false){
+  if (hasId == null){
   const user_id ="左"
-  var address = Session.getActiveUser().getUserLoginId();
     //スプレッドシートに格納される順番
     const data = [[
       user_id,
       new Date(),
-      address
     ]];
     const app = SpreadsheetApp.openById('1f_u5ApB3MD7Rj4mqR_hKwBd6ZFkCZUAMjrvGeffDvCY');
     const sheet = app.getSheetByName('シート1');
@@ -34,19 +36,15 @@ function leftclick() {
     const insertRange = sheet.getRange(insertRow, insertCol,insertRowNum,insertColNum);
     //スプレッドシートに書きこむAPI
     insertRange.setValues(data);
+   PropertiesService.getUserProperties().setProperty('voted',1);
   }else{
     console.log("記録されませんでした")
   }
   }
   function rightclick() {
-　var id = Session.getActiveUser().getUserLoginId(); //調べるメッセージID
-  var sheet = SpreadsheetApp.getActiveSheet();
-  var data = sheet.getRange(2, 3, sheet.getLastRow() - 1).getValues();
-  var hasId = data.some(function(array, i, data) {
-    return (array[0] === id);
-  });
+  var hasId =   PropertiesService.getUserProperties().getProperty('voted');
   Logger.log(hasId);
-  if (hasId == false){
+  if (hasId == null){
   const user_id ="右"
   var address = Session.getActiveUser().getUserLoginId();
     //スプレッドシートに格納される順番
@@ -64,6 +62,7 @@ function leftclick() {
     const insertRange = sheet.getRange(insertRow, insertCol,insertRowNum,insertColNum);
     //スプレッドシートに書きこむAPI
     insertRange.setValues(data);
+   PropertiesService.getUserProperties().setProperty('voted',1);
   }else{
     console.log("登録できませんでした")
   }
@@ -129,6 +128,10 @@ function deletefunc(){
    var ss_id2 = '1f_u5ApB3MD7Rj4mqR_hKwBd6ZFkCZUAMjrvGeffDvCY';
 var sh_name2 = '結果'; //スプレッドシートのシート名を指定
 var sh2 = SpreadsheetApp.openById(ss_id2).getSheetByName(sh_name2);
+var number2 = sh2.getRange("C6").getValue();
+var number3 = sh2.getRange("C7").getValue();
+var delete1 = sh2.getRange("F6").setValue(number2);
+var delete2 = sh2.getRange("G6").setValue(number3);
 var delete1 = sh2.getRange("B10").setValue(" ");
 var delete2 = sh2.getRange("C6").setValue(" ");
 var delete3 = sh2.getRange("C7").setValue(" ");
@@ -142,9 +145,16 @@ var delete1 = sh3.deleteColumn(1)
 var delete1 = sh3.deleteColumn(1)
 var delete1 = sh3.deleteColumn(1)
 var delete1 = sh3.deleteColumn(1)
-sh2.insertColumnsAfter(1,5)
+sh3.insertColumnsAfter(1,5)
 var write1 = sh3.getRange("D1").setValue("左");
 var write1 = sh3.getRange("D2").setValue("右");
 var write1 = sh3.getRange("E1").setValue('=COUNTIF(A3:A,"左")');
 var write1 = sh3.getRange("E2").setValue('=COUNTIF(A3:A,"右")');
+  var userProperties = PropertiesService.getUserProperties();
+  userProperties.deleteProperty('voted');
+}
+
+function getScriptUrl() {
+  var url = ScriptApp.getService().getUrl();
+  return url;
 }
