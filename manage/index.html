@@ -98,12 +98,8 @@ rightButton{
   </div>
   <h1></h1>
     <script>
-      function result(url){
-            window.open(url, '_top')
-     }
       function doSuccess(data){
-         google.script.run
-          .withSuccessHandler(result).getScriptUrl();
+         window.open(<?= getAppUrl() ?>, '_top')
      }
      function buttonclick(){
        google.script.run.withSuccessHandler(doSuccess).myFunction();
